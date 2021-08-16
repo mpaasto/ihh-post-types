@@ -1,0 +1,10 @@
+{
+	"name": "digialist/ihh-post-types",
+	"type": "wordpress-plugin",
+	"version": "master",
+	"require": {
+	  "wecodemore/wpstarter": "~2.0",
+	  "johnpbloch/wordpress-core": ">5.0",
+		"jjgrainger/posttypes": "^2.0"
+	}
+}
