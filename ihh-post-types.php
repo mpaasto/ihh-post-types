@@ -12,6 +12,7 @@ License:     MIT
 namespace IHH;
 
 use PostTypes\PostType;
+use PostTypes\Taxonomy;
 
 /**
  * Notifications
@@ -50,7 +51,34 @@ $events = new PostType( [
 ] );
 
 $events->icon( 'dashicons-calendar-alt' );
+$events->taxonomy('events_category');
+$events->taxonomy('targetgroup');
 $events->register();
+
+
+$events_category = new Taxonomy('events_category');
+$events_category->options([
+	'hierarchial' => false,
+]);
+$events_category->register();
+
+
+
+$targetgroup = new Taxonomy([
+    	'name' => 'targetgroup',
+    	'singular' => __('Targer group', 'ihh'),
+    	'plural' => __('Target groups', 'ihh'),
+    	'slug' => 'targetgroup'
+	]);
+
+$targetgroup->options([
+	'hierarchial' => false,
+]);
+$targetgroup->posttype( 'post' );
+$targetgroup->register();
+
+
+
 
 /**
  * Services
